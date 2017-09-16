@@ -83,7 +83,7 @@ h5('month    =    month number 1 to 12'),
                     
                     tabPanel("Node labels",
                              plotOutput("plot2",height = 600, width = 850),
-                             h4("First 15 rows node number from model training data"),
+                             h4("First column is assigned node number for each obsrvn in model training data"),
                              # verbatimTextOutput("nodesout"),
                              dataTableOutput("nodesout"),
                              br(),
