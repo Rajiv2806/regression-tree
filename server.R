@@ -277,9 +277,15 @@ shinyServer(function(input, output,session) {
   
   })
 
-  output$nodesout = renderPrint({
-    head(nodes1(),15)
-  })
+  # my edits below
+  # output$nodesout = renderPrint({
+  #  head(nodes1(),15)
+  # })
+  
+   output$nodesout = renderTable({
+#    min_rows = min(50, nrows(Dataset()))
+    head(data.frame(nodes1(), Dataset()), min(50, nrows(Dataset())))
+	          })
   
   output$downloadData3 <- downloadHandler(
     filename = function() { "Nodes Info.csv" },
