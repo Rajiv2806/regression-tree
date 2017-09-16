@@ -283,7 +283,6 @@ shinyServer(function(input, output,session) {
   # })
   
    output$nodesout = renderTable({
-#    min_rows = min(50, nrows(Dataset()))
     head(data.frame(nodes1(), train_data()), min(50, nrow(train_data())))
 	          })
   
@@ -291,7 +290,7 @@ shinyServer(function(input, output,session) {
     filename = function() { "Nodes Info.csv" },
     content = function(file) {
       if (identical(Dataset(), '') || identical(Dataset(),data.frame())) return(NULL)
-      dft = data.frame(row_numer = row.names(nodes1()), nodes1())
+      dft = data.frame(nodes1(), train_data());   # data.frame(row_numer = row.names(nodes1()), nodes1())
       write.csv(dft, file, row.names=F, col.names=F)
     }
   )
