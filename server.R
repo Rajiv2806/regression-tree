@@ -282,10 +282,13 @@ shinyServer(function(input, output,session) {
   #  head(nodes1(),15)
   # })
   
-   output$nodesout = renderTable({
-    head(data.frame(nodes1(), train_data()), min(50, nrow(train_data())))
-	          })
-  
+ #  output$nodesout = renderTable({
+ #   head(data.frame(nodes1(), train_data()), min(50, nrow(train_data())))     })
+
+output$nodesout <- renderDataTable({  	
+       data.frame(nodes1(), train_data())
+	}, options = list(lengthMenu = c(10, 30, 50), pageLength = 100))  # my edits here
+	  
   output$downloadData3 <- downloadHandler(
     filename = function() { "Nodes Info.csv" },
     content = function(file) {
