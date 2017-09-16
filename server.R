@@ -284,7 +284,7 @@ shinyServer(function(input, output,session) {
   
    output$nodesout = renderTable({
 #    min_rows = min(50, nrows(Dataset()))
-    head(data.frame(nodes1(), Dataset()), min(50, nrows(Dataset())))
+    head(data.frame(nodes1(), train_data()), min(50, nrows(train_data())))
 	          })
   
   output$downloadData3 <- downloadHandler(
