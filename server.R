@@ -229,8 +229,8 @@ shinyServer(function(input, output,session) {
     
     title1 = paste("Decision Nodes for", input$yAttr)
     
-    fit.rt1 = fit.rt()$model
-    fit.rt1$frame$yval = as.numeric(rownames(fit.rt()$model$frame))
+    fit.rt1 = fit.rt()     #$model     # my edits
+    fit.rt1$frame$yval = as.numeric(rownames(fit.rt()$frame))     # $model # my edits
     
     # create attractive postcript plot of tree 
     post(fit.rt1, 
